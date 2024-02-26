@@ -2,7 +2,7 @@
 
 specVersion: "2.5"
 metadata:
-  name: ardprepseguimientovorrasa
+  name: ardprepseguimientoinhouse
 type: application
 framework:
   name: SAPUI5
@@ -49,5 +49,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: ardprepseguimientovorrasa
+        component: ardprepseguimientoinhouse
         ui5Theme: sap_fiori_3

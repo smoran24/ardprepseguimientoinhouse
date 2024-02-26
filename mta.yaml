@@ -1,53 +1,53 @@
 _schema-version: "3.2"
-ID: ardprepseguimientovorrasa
+ID: ardprepseguimientoinhouse
 description: A Fiori application.
 version: 0.0.1
 modules:
-- name: ardprepseguimientovorrasa-destination-content
+- name: ardprepseguimientoinhouse-destination-content
   type: com.sap.application.content
   requires:
-  - name: ardprepseguimientovorrasa-destination-service
+  - name: ardprepseguimientoinhouse-destination-service
     parameters:
       content-target: true
-  - name: ardprepseguimientovorrasa-repo-host
+  - name: ardprepseguimientoinhouse-repo-host
     parameters:
       service-key:
-        name: ardprepseguimientovorrasa-repo-host-key
-  - name: ardprepseguimientovorrasa-uaa
+        name: ardprepseguimientoinhouse-repo-host-key
+  - name: ardprepseguimientoinhouse-uaa
     parameters:
       service-key:
-        name: ardprepseguimientovorrasa-uaa-key
+        name: ardprepseguimientoinhouse-uaa-key
   parameters:
     content:
       instance:
         destinations:
-        - Name: ardprepseguimientovorrasa_html_repo_host
-          ServiceInstanceName: ardprepseguimientovorrasa-html5-srv
-          ServiceKeyName: ardprepseguimientovorrasa-repo-host-key
-          sap.cloud.service: ardprepseguimientovorrasa
+        - Name: ardprepseguimientoinhouse_html_repo_host
+          ServiceInstanceName: ardprepseguimientoinhouse-html5-srv
+          ServiceKeyName: ardprepseguimientoinhouse-repo-host-key
+          sap.cloud.service: ardprepseguimientoinhouse
         - Authentication: OAuth2UserTokenExchange
-          Name: ardprepseguimientovorrasa_uaa
-          ServiceInstanceName: ardprepseguimientovorrasa-xsuaa-srv
-          ServiceKeyName: ardprepseguimientovorrasa-uaa-key
-          sap.cloud.service: ardprepseguimientovorrasa
+          Name: ardprepseguimientoinhouse_uaa
+          ServiceInstanceName: ardprepseguimientoinhouse-xsuaa-srv
+          ServiceKeyName: ardprepseguimientoinhouse-uaa-key
+          sap.cloud.service: ardprepseguimientoinhouse
         existing_destinations_policy: ignore
   build-parameters:
     no-source: true
-- name: ardprepseguimientovorrasa-app-content
+- name: ardprepseguimientoinhouse-app-content
   type: com.sap.application.content
   path: .
   requires:
-  - name: ardprepseguimientovorrasa-repo-host
+  - name: ardprepseguimientoinhouse-repo-host
     parameters:
       content-target: true
   build-parameters:
     build-result: resources
     requires:
     - artifacts:
-      - ardprepseguimientovorrasa.zip
-      name: ardprepseguimientovorrasa
+      - ardprepseguimientoinhouse.zip
+      name: ardprepseguimientoinhouse
       target-path: resources/
-- name: ardprepseguimientovorrasa
+- name: ardprepseguimientoinhouse
   type: html5
   path: .
   build-parameters:
@@ -58,7 +58,7 @@ modules:
     - npm run build:cf
     supported-platforms: []
 resources:
-- name: ardprepseguimientovorrasa-destination-service
+- name: ardprepseguimientoinhouse-destination-service
   type: org.cloudfoundry.managed-service
   parameters:
     config:
@@ -74,20 +74,20 @@ resources:
           existing_destinations_policy: update
       version: 1.0.0
     service: destination
-    service-name: ardprepseguimientovorrasa-destination-service
+    service-name: ardprepseguimientoinhouse-destination-service
     service-plan: lite
-- name: ardprepseguimientovorrasa-uaa
+- name: ardprepseguimientoinhouse-uaa
   type: org.cloudfoundry.managed-service
   parameters:
     path: ./xs-security.json
     service: xsuaa
-    service-name: ardprepseguimientovorrasa-xsuaa-srv
+    service-name: ardprepseguimientoinhouse-xsuaa-srv
     service-plan: application
-- name: ardprepseguimientovorrasa-repo-host
+- name: ardprepseguimientoinhouse-repo-host
   type: org.cloudfoundry.managed-service
   parameters:
     service: html5-apps-repo
-    service-name: ardprepseguimientovorrasa-html5-srv
+    service-name: ardprepseguimientoinhouse-html5-srv
     service-plan: app-host
 parameters:
   deploy_mode: html5-repo

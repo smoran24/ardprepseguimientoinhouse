@@ -25,12 +25,12 @@
 		},
         "crossNavigation": {
             "inbounds": {
-                "ardprepseguimientovorrasa-inbound": {
+                "ardprepseguimientoinhouse-inbound": {
                     "signature": {
                         "parameters": {},
                         "additionalParameters": "allowed"
                     },
-                    "semanticObject": "ardprepseguimientovorrasa",
+                    "semanticObject": "ardprepseguimientoinhouse",
                     "action": "Display",
                     "title": "{{flpTitle}}",
                     "subTitle": "{{flpSubtitle}}",
@@ -122,6 +122,6 @@
 	},
 	"sap.cloud": {
         "public": true,
-        "service": "ardprepseguimientovorrasa"
+        "service": "ardprepseguimientoinhouse"
     }
 }
